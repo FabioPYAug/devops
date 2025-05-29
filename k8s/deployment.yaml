@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-fastapi-k8s
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-fastapi-k8s
+  template:
+    metadata:
+      labels:
+        app: hello-fastapi-k8s
+    spec:
+      containers:
+        - name: hello-fastapi-k8s
+          image: fabioaugusto2403/hello-fastapi-k8s:latest
+          ports:
+            - containerPort: 8000
